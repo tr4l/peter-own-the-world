@@ -1,4 +1,4 @@
-name: Test Dataloader
+name: Deploy command executor
 on:
   repository_dispatch:
     types: [deploy-command]
@@ -6,7 +6,7 @@ jobs:
   run_test:
     runs-on: ubuntu-latest
     steps:
-    - name: Deplou stuff
+    - name: Deploy stuff
       run: |
         echo ${{ github.event.client_payload.slash_command.command }}
         echo ${{ github.event.client_payload.slash_command.args.all }}
