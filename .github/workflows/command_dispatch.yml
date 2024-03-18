@@ -1,0 +1,23 @@
+on:
+    issue_comment: # applies to PR and issue comments
+      types: [created, edited]
+  
+  name: Slash command dispatch
+  
+  jobs:  
+    command_dispatch:
+      name: Dispatch slash commands
+      runs-on: ubuntu-latest
+      steps:
+    
+        - name: Dispatch
+          id: dispatch
+          uses: peter-evans/slash-command-dispatch@v3
+          with:
+            token: ${{ github.token }}
+            commands: |
+                deploy
+                integration-test
+                build-docs
+  
+  

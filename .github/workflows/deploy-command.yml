@@ -1,0 +1,18 @@
+name: Test Dataloader
+on:
+  repository_dispatch:
+    types: [deploy-command]
+jobs:
+  run_test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Deplou stuff
+      run: |
+        echo ${{ github.event.client_payload.slash_command.command }}
+        echo ${{ github.event.client_payload.slash_command.args.all }}
+        echo ${{ github.event.client_payload.slash_command.args.unnamed.all }}
+        echo ${{ github.event.client_payload.slash_command.args.unnamed.arg1 }}
+        echo ${{ github.event.client_payload.slash_command.args.unnamed.arg2 }}
+        echo ${{ github.event.client_payload.slash_command.args.named.region }}
+        echo ${{ github.event.client_payload.slash_command.args.named.branch }}
+        echo ${{ github.event.client_payload.slash_command.args.named.reason }}
