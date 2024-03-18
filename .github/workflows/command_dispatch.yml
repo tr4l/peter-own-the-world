@@ -7,6 +7,9 @@ jobs:
   command_dispatch:
     name: Dispatch slash commands
     runs-on: ubuntu-latest
+    permissions:
+      # keep this limited to read permissions for the content only!
+      contents: write
     steps:
       - name: Dispatch
         id: dispatch
