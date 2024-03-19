@@ -18,8 +18,6 @@ jobs:
           token: ${{ github.token }}
           commands: |
             deploy
-            integration-test
-            build-docs
   
       - name: Indicate dispatch failure
         if: ${{ steps.dispatch.outcome == 'failure' }}
