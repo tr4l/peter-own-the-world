@@ -20,6 +20,10 @@ jobs:
           commands: |
             deploy
   
+      - name: Debug
+        run: |
+          echo "${{ github.event.comment.body }}"
+
       - name: Indicate dispatch failure
         if: ${{ steps.dispatch.outcome == 'failure' }}
         run: |
